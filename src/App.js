@@ -1,24 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import FullScreenText from './components/FullScreenText';
+import NavigationBar from './components/NavigationBar';
+import AboutMe from './components/AboutMe';
+import Project from './components/Project';
+
 class App extends Component {
+
+
+  componentDidMount = () => {
+
+    // animateScroll.scrollToTop();
+    // animateScroll.scrollToBottom();
+  }
+
   render() {
     return (
       <div className="App">
+        <NavigationBar />
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <div >
+            <FullScreenText>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
+          </div>
+          <div className='Home' /* set either class or name to target of link */>
+            <p className='intro'>I design & build digital products.</p>
+            <small className='name'>Reuben Vas</small>
+          </div>
+          <AboutMe />
+          <div className="Projects">
+            <h1>My Projects</h1>
+            <div className="container">
+              <Project />
+              <Project />
+              <Project />
+            </div>
+          </div>
+          <FullScreenText className='Projects' invertColor={true}>Projects-mock</FullScreenText>
+
         </header>
       </div>
     );
