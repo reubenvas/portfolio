@@ -17,29 +17,27 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <NavigationBar />
-        <header className="App-header">
-          <div >
-            <FullScreenText>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
-          </div>
-          <div className='Home' /* set either class or name to target of link */>
+        <FullScreenText className='Intro'>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
+        <div className='Home' /* set either class or name to target of link */>
+          <div className='bg-landscape' />
+          <article className='text--home'>
             <p className='intro'>I design & build digital products.</p>
-            <small className='name'>Reuben Vas</small>
+            <p className='name'>Reuben Vas</p>
+          </article>
+        </div>
+        <AboutMe />
+        <div className="Projects">
+          <h1>My Projects</h1>
+          <div className="container">
+            <Project />
+            <Project />
+            <Project />
           </div>
-          <AboutMe />
-          <div className="Projects">
-            <h1>My Projects</h1>
-            <div className="container">
-              <Project />
-              <Project />
-              <Project />
-            </div>
-          </div>
-          <FullScreenText className='Projects' invertColor={true}>Projects-mock</FullScreenText>
-
-        </header>
-      </div>
+        </div>
+        <FullScreenText className='Projects' invertColor={true}>Projects-mock</FullScreenText>
+      </main>
     );
   }
 }

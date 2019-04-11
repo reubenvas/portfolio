@@ -10,13 +10,12 @@ function scrollTo(query) {
 
 
 const FullScreenText = props => {
-    const { children, className, invertColor } = props;
-    const [textColor, backgroundColor] = invertColor ? ['#282c34', 'white'] : ['white', '#282c34'];
+    const { children, className} = props;
     const sentences = children.split('#');
     const lines = [];
 
     return (
-        <div className={className} style={styles.container(backgroundColor)}>
+        <div className={`${className} container--fullscreen`} >
             <Typist cursor={{ show: false }} onLineTyped={(line, lineIdx) => {
                 lines.push(line);
                 console.log(lines);
@@ -26,7 +25,7 @@ const FullScreenText = props => {
                     const backspaces = arr.length - 1 !== i ? s.length : 0;
                     return (
                         <div key={i}>
-                            <h4 style={styles.heading(s.length, textColor)}>
+                            <h4 style={styles.heading(s.length)}>
                                 <span>{s}</span>
                                 {<Typist.Backspace count={backspaces} delay={500} />}
                             </h4>
@@ -40,22 +39,11 @@ const FullScreenText = props => {
 
 
 const styles = {
-    container: (backgroundColor) => {
-        return {
-            height: '100vh',
-            width: '100vw',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: backgroundColor
-        }
-    },
-    heading: (textLength, textColor) => {
+    heading: (textLength) => {
         const fontSize = 20 - textLength / 3;
         return {
             fontSize: `${fontSize}vh`,
             fontFamily: 'Source Sans Pro, sans-serif',
-            color: textColor
         };
     },
 }

@@ -1,19 +1,33 @@
 .App {
   text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
+}
+
+.container--fullscreen {
+  height:98vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Intro {
+  /* color: #F9D342; */
+  color: rgb(130, 163, 179) ;
+  text-shadow: 0px 0px 40px #d8d5d53e;
+  background-image: linear-gradient(to bottom, #2a3031, #2d373a, #313f43, #34464d, #384e57);
+  box-shadow: 0px 10px 20px 10px #364b54;
 }
 
 .navigation-container {
+  visibility: hidden;
   width: 100vw;
   height: 5vh;
   background-color: white;
@@ -32,12 +46,29 @@
   justify-content: center;
 }
 
+.bg-landscape {
+  background-image: url("./images/forest-mountains-3v-1440x900.jpg");
+  position: absolute;
+  height: fill;
+  width: fill;
+  z-index: -1;
+  filter: blur(3.5px);
+}
+
+.text--home {
+  text-shadow: 0px 0px 300px #fffdfd;
+}
+
+
 .intro {
   font-family: 'Cinzel Decorative', cursive;
+  font-size: 5.5vh;
 }
 
 .name {
   font-family: 'Forum', cursive;
+  font-size: 4.3vh;
+
 }
 
 .AboutMe {
