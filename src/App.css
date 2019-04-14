@@ -20,11 +20,9 @@
 
 .Intro {
   /* color: #F9D342; */
-  color: rgb(130, 163, 179) ;
-  text-shadow: 0px 0px 40px #d8d5d53e;
-  background-image: linear-gradient(to bottom, #2a3031, #2d373a, #313f43, #34464d, #384e57);
-  box-shadow: 0px 10px 20px 10px #364b54;
-}
+  color: white ;
+  text-shadow: 0px 0px 10px rgb(137,137,153);
+  background-image: linear-gradient(to top, #689eb8, #90b2c9, #b4c7d9, #d5dde8, #f3f4f6);}
 
 .navigation-container {
   visibility: hidden;
@@ -44,19 +42,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+  background-image: linear-gradient(to bottom, #689eb8, #86adc5, #a2bcd1, #bcccdd, #d5dde8, #dadde6, #dddde3, #dfdde1, #d2ccd0, #c5babd, #b7aaa8, #a79b94);}
 
-.bg-landscape {
-  background-image: url("./images/forest-mountains-3v-1440x900.jpg");
-  position: absolute;
-  height: fill;
-  width: fill;
-  z-index: -1;
-  filter: blur(3.5px);
-}
 
 .text--home {
-  text-shadow: 0px 0px 300px #fffdfd;
+  text-shadow: 0px 0px 10px rgb(119, 18, 18);
 }
 
 

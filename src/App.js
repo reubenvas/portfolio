@@ -21,7 +21,6 @@ class App extends Component {
         <NavigationBar />
         <FullScreenText className='Intro'>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
         <div className='Home' /* set either class or name to target of link */>
-          <div className='bg-landscape' />
           <article className='text--home'>
             <p className='intro'>I design & build digital products.</p>
             <p className='name'>Reuben Vas</p>
