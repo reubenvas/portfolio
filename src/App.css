@@ -25,7 +25,6 @@
   background-image: linear-gradient(to top, #689eb8, #90b2c9, #b4c7d9, #d5dde8, #f3f4f6);}
 
 .navigation-container {
-  visibility: hidden;
   width: 100vw;
   height: 5vh;
   background-color: white;
@@ -36,17 +35,43 @@
 }
 
 .Home {
-  height: 100vh;
+  height: 70vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-image: linear-gradient(to bottom, #689eb8, #86adc5, #a2bcd1, #bcccdd, #d5dde8, #dadde6, #dddde3, #dfdde1, #d2ccd0, #c5babd, #b7aaa8, #a79b94);}
+  justify-content: flex-end;
+  align-content: space-between;
+}
 
+.space {
+  height: 12vh;
+  width: 100vh;
+}
+
+.navbar-container {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.home-picture {
+  background-image: url('./images/cool-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .text--home {
-  text-shadow: 0px 0px 10px rgb(119, 18, 18);
+  text-shadow: 0px 0px 15px #a79b94;
 }
 
 
@@ -68,7 +93,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: pink;
+  background-image: linear-gradient(to bottom, #a79b94, #beb2b1, #d3cbcd, #e8e5e7, #ffffff);
 }
 
 .Projects {
@@ -78,7 +103,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: whitesmoke;
+  background-image: linear-gradient(to bottom, #ffffff, #fcfcfd, #f9f9fa, #f6f7f8, #f3f4f6);
   color: #282c34;
 }
 

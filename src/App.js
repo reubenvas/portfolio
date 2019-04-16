@@ -18,14 +18,18 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <NavigationBar />
         <FullScreenText className='Intro'>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
         <div className='Home' /* set either class or name to target of link */>
-          <article className='text--home'>
-            <p className='intro'>I design & build digital products.</p>
-            <p className='name'>Reuben Vas</p>
-          </article>
+          <div className='home-picture'>
+            <article className='text--home'>
+              <p className='intro'>I design & build digital products.</p>
+              <p className='name'>Reuben Vas</p>
+            </article>
+          </div>
         </div>
+        <div className='space'/>
+          <NavigationBar />
+        <div className='space'/>
         <AboutMe />
         <div className="Projects">
           <h1>My Projects</h1>
