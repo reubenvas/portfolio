@@ -20,9 +20,12 @@
 
 .Intro {
   /* color: #F9D342; */
-  color: white ;
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+
+  color: rgb(87, 26, 26) ;
   text-shadow: 0px 0px 10px rgb(137,137,153);
-  background-image: linear-gradient(to top, #689eb8, #90b2c9, #b4c7d9, #d5dde8, #f3f4f6);}
+  background-image: linear-gradient(to bottom, #f96167, #ff7b5f, #ff955b, #ffae5d, #ffc766, #ffcd7e, #ffd495, #ffdbac, #ffddcd, #ffe6ed, #fff4fe, #ffffff);
+}
 
 .navigation-container {
   width: 100vw;
@@ -122,11 +125,6 @@
   justify-content: space-evenly;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer {
+  width: 100vw;
 }

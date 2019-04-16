@@ -10,6 +10,7 @@ import { IoIosMail } from "react-icons/io";
 const NavigationBar = () => {
     const appNavbar = (
         <nav className="navbar-container" style={{ "background-color": "red" }}>
+            <span>Reuben Vas</span>
             <div className="link-container">
                 <Link
                     activeClass="active"

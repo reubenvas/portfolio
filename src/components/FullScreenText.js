@@ -41,10 +41,7 @@ const FullScreenText = props => {
 const styles = {
     heading: (textLength) => {
         const fontSize = 20 - textLength / 3;
-        return {
-            fontSize: `${fontSize}vh`,
-            fontFamily: 'Source Sans Pro, sans-serif',
-        };
+        return {fontSize: `${fontSize}vh`};
     },
 }
 

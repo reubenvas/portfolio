@@ -39,7 +39,9 @@ class App extends Component {
             <Project />
           </div>
         </div>
-        <FullScreenText className='Projects' invertColor={true}>Projects-mock</FullScreenText>
+        <footer>
+          <p>this is a footer</p>
+        </footer>
       </main>
     );
   }
