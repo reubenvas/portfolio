@@ -27,16 +27,6 @@
   background-image: linear-gradient(to bottom, #f96167, #ff7b5f, #ff955b, #ffae5d, #ffc766, #ffcd7e, #ffd495, #ffdbac, #ffddcd, #ffe6ed, #fff4fe, #ffffff);
 }
 
-.navigation-container {
-  width: 100vw;
-  height: 5vh;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
 .Home {
   height: 70vh;
   width: 100vw;
@@ -49,22 +39,48 @@
 
 .space {
   height: 12vh;
-  width: 100vh;
+  width: 20vh;
 }
 
 .navbar-container {
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.623);
+  /* background-image: linear-gradient(to left top, #b5365c, #c6405a, #d54b57, #e35853, #ef664e, #f67647, #fb8740, #fd9839, #f9ae32, #f2c433, #e6da3d, #d7ef50); */
+  /* ändra box-shadow här så den blir mindre på Home */
+  transition: box-shadow .5s;
+  font-family: 'Source Sans Pro', sans-serif;
   position: sticky;
   top: 0;
   width: 100vw;
+  height: 8vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 10px;
+}
+
+.profileLink-container {
+  /* border: 1px solid; */
+  font-size: 4vh;
+  width: 15vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.link-container {
+  /* border: 1px solid; */
+  font-family: 'Arima Madurai', cursive;
+  width:40vw;
+  font-size: 3.5vh;
+  display: flex;
+  justify-content: space-around;
 }
 
 .home-picture {
   background-image: url('./images/cool-background.png');
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: 0px 0px 93px -17px rgb(163, 116, 116);
   width: 80vw;
   height: 50vh;
   display: flex;
@@ -121,10 +137,16 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 60vh;
   justify-content: space-evenly;
 }
 
 .footer {
   width: 100vw;
+}
+
+@media only screen and (max-device-width: 600x) {
+
+  
 }

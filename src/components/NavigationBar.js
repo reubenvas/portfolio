@@ -1,16 +1,61 @@
-import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button, Container } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
 
 import { Link } from 'react-scroll';
 
-import {FaGithub, FaLinkedinIn} from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { IoIosMail } from "react-icons/io";
 
 
-const NavigationBar = () => {
-    const appNavbar = (
-        <nav className="navbar-container" style={{ "background-color": "red" }}>
-            <span>Reuben Vas</span>
+
+class NavigationBar extends Component {
+    state = {
+        mobileMenu: false,
+        navColor: '',
+        boxShadow: '',
+    }
+
+
+    adjustNavbarMobile = () => {
+        const bool = window.innerWidth < 830 ? true : false;
+        this.setState({ mobileMenu: bool });
+    }
+
+    adjustShadow = (shadow) => {
+        if (this.state.boxShadow !== shadow) {
+            this.setState({ boxShadow: shadow });
+        }
+    }
+
+    toggleName = (linkName) => {
+        if (linkName !== 'Home') {
+
+        }
+    }
+
+    componentDidMount = () => {
+        this.adjustNavbarMobile();
+        window.addEventListener('resize', this.adjustNavbarMobile);
+    }
+    componentWillUnmount = () => {
+        window.removeEventListener('resize', this.adjustNavbarMobile);
+    }
+
+    menu = () => {
+        if (this.state.mobileMenu) {
+            return (
+                <Nav>
+                    <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+            );
+        }
+        return (
             <div className="link-container">
                 <Link
                     activeClass="active"
@@ -20,11 +65,14 @@ const NavigationBar = () => {
                     duration={500}
                     onSetActive={
                         (ggg) => {
-                            // make the top navbart change color to its background
-                            console.log(`link was pressed: ${ggg}`)
+                            // make the top navbar change color to its background
+                            this.adjustShadow('0px 0px 10px 0px rgba(0,0,0,0.75)');
+                            this.props.turnOffIntro();
+                            window.scrollTo(0,0);
+                            console.log(`link was pressed: ${ggg}`);
                         }}>
                     Home
-                </Link>
+            </Link>
                 <Link
                     activeClass="active"
                     to="Projects"
@@ -32,11 +80,15 @@ const NavigationBar = () => {
                     smooth={true}
                     duration={500}
                     onSetActive={
-                        (ggg) => console.log(`link was pressed: ${ggg}`)
+                        (ggg) => {
+                            console.log(`link was pressed: ${ggg}`);
+                            // this.adjustShadow('0px 28px 27px 3px rgba(0,0,0,0.75)');
+
+                        }
                     }
                 >
                     Projects
-                </Link>
+            </Link>
                 <Link
                     activeClass="active"
                     to="AboutMe"
@@ -44,21 +96,20 @@ const NavigationBar = () => {
                     smooth={true}
                     duration={500}
                     onSetActive={
-                        (ggg) => console.log(`link was pressed: ${ggg}`)
+                        (ggg) => {
+                            console.log(`link was pressed: ${ggg}`);
+                            this.adjustShadow('0px 28px 27px 3px rgba(0,0,0,0.75)');
+                            //    this.adjustShadow('0px 11px 119px -14px rgba(0,0,0,1)');
+                        }
                     }
                 >
                     About me
-                </Link>
+            </Link>
             </div>
-            <div className="profileLink-container">
-                <FaGithub/>
-                <IoIosMail />
-                <FaLinkedinIn />
-            </div>
-        </nav>
-    );
+        );
+    }
 
-    const BootstrapNavBar = () => (
+    BootstrapNavBar = () => (
         <Navbar
             sticky="top"/* change to fixed="top" when nav not in view */
             bg="light"
@@ -78,15 +129,29 @@ const NavigationBar = () => {
                     <Nav.Link href="#deets">More deets</Nav.Link>
                     <Nav.Link eventKey={2} href="#memes">
                         Dank memes
-                </Nav.Link>
+            </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
     )
 
-    return (
-        appNavbar
-    );
+    render() {
+        console.log(this.state.navColor);
+        console.log(this.props.turnOffIntro);
+
+
+        return (
+            <nav className="navbar-container" style={{ "background-color": this.state.navColor, "box-shadow": this.state.boxShadow }}>
+                {this.menu()}
+                <div className="profileLink-container">
+                    <FaGithub />
+                    <IoIosMail />
+                    <FaLinkedinIn />
+                </div>
+            </nav>
+        );
+
+    }
 }
 
 export default NavigationBar;
