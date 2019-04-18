@@ -67,8 +67,6 @@ class NavigationBar extends Component {
                         (ggg) => {
                             // make the top navbar change color to its background
                             this.adjustShadow('0px 0px 10px 0px rgba(0,0,0,0.75)');
-                            this.props.turnOffIntro();
-                            window.scrollTo(0,0);
                             console.log(`link was pressed: ${ggg}`);
                         }}>
                     Home
@@ -82,11 +80,12 @@ class NavigationBar extends Component {
                     onSetActive={
                         (ggg) => {
                             console.log(`link was pressed: ${ggg}`);
+                            this.props.turnOffIntro();
                             // this.adjustShadow('0px 28px 27px 3px rgba(0,0,0,0.75)');
 
                         }
                     }
-                >
+                    >
                     Projects
             </Link>
                 <Link

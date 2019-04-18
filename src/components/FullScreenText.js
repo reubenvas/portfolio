@@ -4,7 +4,9 @@ import Typist from 'react-typist';
 import { animateScroll } from 'react-scroll';
 
 function scrollTo(query) {
-    const element = document.querySelector(query).getBoundingClientRect().top;
+    let element = document.querySelector(query).getBoundingClientRect().top;
+    console.log(element);
+    element += 0.001;
     animateScroll.scrollTo(element, { smooth: true, duration: 3000, delay: 500 });
 }
 
@@ -19,7 +21,11 @@ const FullScreenText = props => {
             <Typist cursor={{ show: false }} onLineTyped={(line, lineIdx) => {
                 lines.push(line);
                 console.log(lines);
-                if (lines.length === 6) scrollTo('.Home');
+                if (lines.length === 6) {
+                    scrollTo('.Home');
+                    setTimeout(() => window.document.body.style.overflowY = 'visible', 3510)
+
+                }
             }}>
                 {sentences.map((s, i, arr) => {
                     const backspaces = arr.length - 1 !== i ? s.length : 0;

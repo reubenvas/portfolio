@@ -43,7 +43,6 @@
 }
 
 .navbar-container {
-  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.623);
   /* background-image: linear-gradient(to left top, #b5365c, #c6405a, #d54b57, #e35853, #ef664e, #f67647, #fb8740, #fd9839, #f9ae32, #f2c433, #e6da3d, #d7ef50); */
   /* ändra box-shadow här så den blir mindre på Home */
@@ -108,14 +107,16 @@
 .AboutMe {
   height: 100vh;
   width: 100vw;
+  padding: 0 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to bottom, #a79b94, #beb2b1, #d3cbcd, #e8e5e7, #ffffff);
+  background-image: linear-gradient(to bottom, #ffffff, #fbfbfb, #f7f7f7, #f3f3f3, #efefef, #eaeaea, #e5e5e5, #e0e0e0, #d8d8d8, #d1d1d1, #c9c9c9, #c2c2c2);
 }
 
 .Projects {
+  background-image: linear-gradient(to top, #ffffff, #fbfbfb, #f7f7f7, #f3f3f3, #efefef, #eaeaea, #e5e5e5, #e0e0e0, #d8d8d8, #d1d1d1, #c9c9c9, #c2c2c2);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -131,7 +132,8 @@
   width: 90vw;
   height: 20vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
 }
 
 .container {
@@ -148,5 +150,5 @@
 
 @media only screen and (max-device-width: 600x) {
 
-  
+
 }

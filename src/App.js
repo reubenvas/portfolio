@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-
+import Cookies from 'universal-cookie';
 
 import FullScreenText from './components/FullScreenText';
 import NavigationBar from './components/NavigationBar';
@@ -19,15 +19,29 @@ class App extends Component {
     this.setState({ intro: false });
   }
 
+  isFirstTimeVisit = () => {
+    const cookies = new Cookies();
+
+    if (!cookies.get('welcome')) {
+
+      const date = (new Date()).toLocaleDateString();
+      cookies.set('welcome', date, { path: '/' });
+      return true;
+    }
+
+    return false;
+  }
+
   render() {
 
     const Intro = () => {
-      if (this.state.intro) {
+      if (this.isFirstTimeVisit() && this.state.intro) {
         return (
           <FullScreenText className='Intro'>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
         );
       }
-      return '';
+      window.document.body.style.overflowY = 'visible';
+      return <div />;
     }
 
     return (
@@ -48,9 +62,9 @@ class App extends Component {
         <div className="Projects">
           <h1>My Projects</h1>
           <div className="container">
-            <Project />
-            <Project />
-            <Project />
+            <Project name="Park Away" description="Extraordinary login- and logout app for parking."/>
+            <Project name="Project-Name" description="Project-Description"/>
+            <Project name="Project-Name" description="Project-Description"/>
           </div>
         </div>
         <footer>
