@@ -43,6 +43,7 @@
 }
 
 .navbar-container {
+  z-index: 10;
   background-color: rgba(255, 255, 255, 0.623);
   /* background-image: linear-gradient(to left top, #b5365c, #c6405a, #d54b57, #e35853, #ef664e, #f67647, #fb8740, #fd9839, #f9ae32, #f2c433, #e6da3d, #d7ef50); */
   /* ändra box-shadow här så den blir mindre på Home */
@@ -116,32 +117,61 @@
 }
 
 .Projects {
-  background-image: linear-gradient(to top, #ffffff, #fbfbfb, #f7f7f7, #f3f3f3, #efefef, #eaeaea, #e5e5e5, #e0e0e0, #d8d8d8, #d1d1d1, #c9c9c9, #c2c2c2);
-  height: 100vh;
+  background-color: #fff;
+  height: 170vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to bottom, #ffffff, #fcfcfd, #f9f9fa, #f6f7f8, #f3f4f6);
-  color: #282c34;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 130vh;
+  justify-content: space-around;
 }
 
 .project {
   border: 1px solid black;
-  width: 90vw;
-  height: 20vh;
+  width: 70vw;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 
-.container {
+.project-background {
+  height: inherit;
+  width: inherit;
+  background-color: rgb(42, 156, 42);
+  position: absolute;
+}
+
+.project-text {
+  padding: 0 10px;
+  position: relative;
+  text-align: left;
+}
+
+.buttons-container {
+  width: 17vw;
+  height: 13vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 60vh;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.project-btn {
+  font-size: calc(10px + 2vmin);
+  height: 6vh;
+  border: none;
+  background-image: linear-gradient(to right, #ff5349, #ff5b3e, #ff6332, #ff6c23, #ff750e);
+  color: white;
 }
 
 .footer {

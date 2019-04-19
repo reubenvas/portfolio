@@ -1,16 +1,19 @@
 import React from 'react';
 
 const Project = (props) => {
-
     const { name, description } = props;
-    console.log(name, description);
 
     return (
         <div className="project">
+            <div className="project-background" />
+            <div className="project-text">
             <h2>{name}</h2>
             <p>{description}</p>
-            <button>Buttons to link me further</button>
-            <small>some cool hover or focus effect</small>
+            <div className="buttons-container">
+                <button className="project-btn">View App</button>
+                <button className="project-btn">View Code</button>
+            </div>
+            </div>
         </div>
     );
 }

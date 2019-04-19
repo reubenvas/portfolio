@@ -136,8 +136,6 @@ class NavigationBar extends Component {
 
     render() {
         console.log(this.state.navColor);
-        console.log(this.props.turnOffIntro);
-
 
         return (
             <nav className="navbar-container" style={{ "background-color": this.state.navColor, "box-shadow": this.state.boxShadow }}>
