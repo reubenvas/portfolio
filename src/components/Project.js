@@ -1,11 +1,13 @@
 import React from 'react';
 
 const Project = (props) => {
-    const { name, description } = props;
+    const { name, picture, description } = props;
 
+
+    // CHANGE SO THAT URL TO BACKGROUND IMAGE IS NOT HARD CODED
     return (
         <div className="project">
-            <div className="project-background" />
+            <div className="project-background" style={{'background-image': 'url(/static/media/preggy.0ca33563.png)'}}/>
             <div className="project-text">
             <h2>{name}</h2>
             <p>{description}</p>

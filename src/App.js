@@ -62,9 +62,9 @@ class App extends Component {
         <div className="Projects">
           <h1>Latest Works</h1>
           <div className="projects-container">
-            <Project name="Park Away" description="Extraordinary login- and logout app for parking."/>
-            <Project name="Preggy" description="Sensational ios- and android app for following your pregnancy."/>
-            <Project name="Project-Name" description="Project-Description"/>
+            <Project name="Park Away" picture='park_away' description="Extraordinary login- and logout app for parking."/>
+            <Project name="Preggy" picture='preggy' description="Sensational ios- and android app for following your pregnancy."/>
+            <Project name="Project-Name" picture='preggy' description="Project-Description"/>
           </div>
         </div>
         <footer>

@@ -118,7 +118,7 @@
 
 .Projects {
   background-color: #fff;
-  height: 170vh;
+  height: 210vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -126,18 +126,22 @@
   justify-content: center;
 }
 
+.Projects h1 {
+  margin-top: 14vh;
+}
+
 .projects-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 130vh;
+  height: 190vh;
   justify-content: space-around;
 }
 
 .project {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 70vw;
-  height: 40vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -147,28 +151,48 @@
 .project-background {
   height: inherit;
   width: inherit;
-  background-color: rgb(42, 156, 42);
   position: absolute;
+  background-image: url('./images/preggy.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .project-text {
   padding: 0 10px;
   position: relative;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+}
+
+.project-text h2 {
+  font-size: 2.3rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.project-text p {
+  font-size: calc(14px + 2vmin);
 }
 
 .buttons-container {
-  width: 17vw;
+  width: 20vw;
+  max-width: 290px;
   height: 13vh;
   display: flex;
   justify-content: space-between;
-  align-content: space-around;
+  align-content: space-between;
   flex-wrap: wrap;
 }
 
 .project-btn {
-  font-size: calc(10px + 2vmin);
+  font-weight: 300;
+  font-size: 2.5vh;
   height: 6vh;
+  min-width: 109px;
   border: none;
   background-image: linear-gradient(to right, #ff5349, #ff5b3e, #ff6332, #ff6c23, #ff750e);
   color: white;
