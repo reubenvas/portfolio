@@ -8,6 +8,9 @@ import NavigationBar from './components/NavigationBar';
 import AboutMe from './components/AboutMe';
 import Project from './components/Project';
 
+import preggy from './images/preggy.png';
+import park_away from './images/park_away.PNG';
+
 
 class App extends Component {
   // fix so that the user by default visits intro page on refresh
@@ -62,8 +65,8 @@ class App extends Component {
         <div className="Projects">
           <h1>Latest Works</h1>
           <div className="projects-container">
-            <Project name="Park Away" picture='park_away' description="Extraordinary login- and logout app for parking."/>
-            <Project name="Preggy" picture='preggy' description="Sensational ios- and android app for following your pregnancy."/>
+            <Project name="Park Away" picture={park_away} description="Extraordinary login- and logout app for parking."/>
+            <Project name="Preggy" picture={preggy} description="Sensational ios- and android app for following your pregnancy."/>
             <Project name="Project-Name" picture='preggy' description="Project-Description"/>
           </div>
         </div>
