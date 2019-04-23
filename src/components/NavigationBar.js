@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 import { Link } from 'react-scroll';
 
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { IoIosMail } from "react-icons/io";
 
+import Drawer from './Drawer';
 
 
 class NavigationBar extends Component {
@@ -52,6 +53,7 @@ class NavigationBar extends Component {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
+                    <Drawer />
                 </Nav>
             );
         }
@@ -140,10 +142,11 @@ class NavigationBar extends Component {
         return (
             <nav className="navbar-container" style={{ "background-color": this.state.navColor, "box-shadow": this.state.boxShadow }}>
                 {this.menu()}
+
                 <div className="profileLink-container">
-                    <FaGithub />
-                    <IoIosMail />
-                    <FaLinkedinIn />
+                    <FaGithub onClick={() => window.location.href = "https://github.com/reubenvas/"}/>
+                    <IoIosMail onClick={() => window.location.href = "mailto: reuben.vas@hotmail.com"}/>
+                    <FaLinkedinIn onClick={() => window.location.href = "https://www.linkedin.com/in/reuben-vas/"}/>
                 </div>
             </nav>
         );
