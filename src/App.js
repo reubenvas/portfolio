@@ -13,7 +13,6 @@ import park_away from './images/park_away.PNG';
 
 
 class App extends Component {
-  // fix so that the user by default visits intro page on refresh
   state = {
     intro: true,
   }

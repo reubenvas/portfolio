@@ -9,7 +9,7 @@ const Project = (props) => {
     return (
         <div className="project">
         <div className="initial-background" />
-            <div className="project-background" style={{'background-image': `url(${picture})`}}/>
+            <div className="project-background" style={{backgroundImage: `url(${picture})`}}/>
             <div className="filter-color" />
             <div className="project-text">
             <h2>{name}</h2>
