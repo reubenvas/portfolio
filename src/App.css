@@ -44,19 +44,26 @@
 
 .navbar-container {
   z-index: 10;
-  background-color: rgba(255, 255, 255, 0.623);
+  background-color: rgba(255, 255, 255, 0.823);
   /* background-image: linear-gradient(to left top, #b5365c, #c6405a, #d54b57, #e35853, #ef664e, #f67647, #fb8740, #fd9839, #f9ae32, #f2c433, #e6da3d, #d7ef50); */
   /* ändra box-shadow här så den blir mindre på Home */
   transition: box-shadow .5s;
   font-family: 'Source Sans Pro', sans-serif;
   position: sticky;
   top: 0;
-  width: 100vw;
   height: 8vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  width: 100vw;
+}
+
+.navbar-content {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profileLink-container {

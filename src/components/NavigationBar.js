@@ -43,21 +43,12 @@ class NavigationBar extends Component {
     }
 
     menu = () => {
+        // ADD LINKS TO MOBILE VIEW AS WELL AND MAKE SHADOW WORK!
         if (this.state.mobileMenu) {
-            return (
-                <Nav>
-                    <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    <Drawer />
-                </Nav>
-            );
+            return <Drawer />;
         }
         return (
+            <div className="navbar-content">
             <div className="link-container">
                 <Link
                     activeClass="active"
@@ -107,6 +98,13 @@ class NavigationBar extends Component {
                     About me
             </Link>
             </div>
+
+            <div className="profileLink-container">
+                    <FaGithub onClick={() => window.location.href = "https://github.com/reubenvas/"}/>
+                    <IoIosMail onClick={() => window.location.href = "mailto: reuben.vas@hotmail.com"}/>
+                    <FaLinkedinIn onClick={() => window.location.href = "https://www.linkedin.com/in/reuben-vas/"}/>
+            </div>
+            </div>
         );
     }
 
@@ -142,12 +140,6 @@ class NavigationBar extends Component {
         return (
             <nav className="navbar-container" style={{ "background-color": this.state.navColor, "box-shadow": this.state.boxShadow }}>
                 {this.menu()}
-
-                <div className="profileLink-container">
-                    <FaGithub onClick={() => window.location.href = "https://github.com/reubenvas/"}/>
-                    <IoIosMail onClick={() => window.location.href = "mailto: reuben.vas@hotmail.com"}/>
-                    <FaLinkedinIn onClick={() => window.location.href = "https://www.linkedin.com/in/reuben-vas/"}/>
-                </div>
             </nav>
         );
 
