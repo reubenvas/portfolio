@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -31,7 +31,7 @@ const styles = {
     },
     list: {
         width: 250,
-        // 'padding-top': '8vh'
+        // paddingTop: '8vh'
     },
     fullList: {
         width: 'auto',
@@ -39,7 +39,7 @@ const styles = {
     },
 };
 
-class SwipeableTemporaryDrawer extends React.Component {
+class TemporaryDrawer extends React.Component {
     state = {
         top: false,
         left: false,
@@ -106,7 +106,7 @@ class SwipeableTemporaryDrawer extends React.Component {
         return (
             <div >
                 <Button onClick={this.toggleDrawer('left', true)}>Open Left</Button>
-                <SwipeableDrawer
+                <Drawer
                     open={this.state.left}
                     onClose={this.toggleDrawer('left', false)}
                     onOpen={this.toggleDrawer('left', true)}
@@ -119,14 +119,14 @@ class SwipeableTemporaryDrawer extends React.Component {
                     >
                         {sideList}
                     </div>
-                </SwipeableDrawer>
+                </Drawer>
             </div>
         );
     }
 }
 
-SwipeableTemporaryDrawer.propTypes = {
+TemporaryDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SwipeableTemporaryDrawer);
+export default withStyles(styles)(TemporaryDrawer);
