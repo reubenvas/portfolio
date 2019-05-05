@@ -12,7 +12,6 @@ const isMobileView = () => window.innerWidth < 830 ? true : false;
 class NavigationBar extends Component {
     state = {
         mobileMenu: isMobileView(),
-        navColor: '',
         boxShadow: '',
     }
 
@@ -78,10 +77,9 @@ class NavigationBar extends Component {
     }
 
     render() {
-        console.log(this.state.navColor);
 
         return (
-            <nav className="navbar-container" style={{ backgroundColor: this.state.navColor, boxShadow: this.state.boxShadow }}>
+            <nav className="navbar-container" style={{boxShadow: this.state.boxShadow }}>
                 {this.menu()}
             </nav>
         );
