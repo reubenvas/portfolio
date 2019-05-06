@@ -47,7 +47,7 @@
   background-color: rgba(255, 255, 255, 0.823);
   /* background-image: linear-gradient(to left top, #b5365c, #c6405a, #d54b57, #e35853, #ef664e, #f67647, #fb8740, #fd9839, #f9ae32, #f2c433, #e6da3d, #d7ef50); */
   /* ändra box-shadow här så den blir mindre på Home */
-  transition: box-shadow .5s, background-color 2s;
+  transition: box-shadow .5s, background-color 2.5s;
   font-family: 'Source Sans Pro', sans-serif;
   position: sticky;
   top: 0;
@@ -113,7 +113,7 @@
 }
 
 .AboutMe {
-  height: 100vh;
+  height: 130vh;
   width: 100vw;
   padding: 0 1vw;
   display: flex;

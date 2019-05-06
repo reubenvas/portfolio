@@ -15,8 +15,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
+
 
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { IoIosMail } from "react-icons/io";
@@ -25,7 +24,6 @@ import { Link } from 'react-scroll';
 
 
 const styles = {
-    // fix so that drawer is behind navbar
     root: {
         backgroundColor: 'yellow'
     },
@@ -46,52 +44,61 @@ const styles = {
     }
 };
 
+let navBar;
+
 class TemporaryDrawer extends React.Component {
     state = {
         left: false,
-        isNavOnTop: true || false,
+        isNavOnTop: false,
         buttonText: 'Open Left'
     };
 
+    styleNavBarDefault = () => {
+        navBar.style.zIndex = 10;
+        navBar.style.backgroundColor = 'rgba(255, 255, 255, 0.823)';
+    }
+
+    styleNavBarTop = () => {
+        navBar.style.zIndex = 1400;
+        navBar.style.backgroundColor = 'rgb(216, 216, 216)';
+    }
+
     handleScroll = () => {
-        // console.log('navbar at the top?',this.isAtTopOffPage(document.querySelector('.navbar-container')));
 
-        if (this.isAtTopOffPage(document.querySelector('.navbar-container')) !== this.state.isNavOnTop) {
-            console.log('STATE, is nav on top:', this.state.isNavOnTop);
-            console.log('SJÄLVA FUNKTIONEN, is nav on top:', this.isAtTopOffPage(document.querySelector('.navbar-container')));
-        // ÄNDRA SÅ MAN INTE ÄNDRAR STATE PÅ VARJE SCROLL
-            this.setState({isNavOnTop: this.isAtTopOffPage(document.querySelector('.navbar-container'))})
+        if (this.isAtTopOffPage(navBar) !== this.state.isNavOnTop) {
+            this.setState({isNavOnTop: this.isAtTopOffPage(navBar)})
         }
-        // else {
-        //     this.setState({isNavOnTop: false})
-        // }
 
+        // CHANGE color on navbar when opening drawer!!
+        // navBar.style.backgroundImage = 'linear-gradient(to top, #282726, #2b2a2a, #2e2d2d, #313131, #343434)';
 
+        if (this.state.isNavOnTop && this.state.left) {
+            this.styleNavBarTop();
+        } else {
+            this.styleNavBarDefault();
+        }
     }
 
     componentDidMount= () => {
+        navBar = document.querySelector('.navbar-container');
+
         window.addEventListener('scroll', this.handleScroll);
-        document.querySelector('.navbar-container').style.justifyContent = 'flex-end';
-        console.log(this.isAtTopOffPage(document.querySelector('.navbar-container')));
+        navBar.style.justifyContent = 'flex-end';
     };
 
     componentWillUnmount = () => {
         window.removeEventListener('scroll', this.handleScroll);
     };
 
-    toggleDrawer = (side, open) => () => {
-        this.setState({
-            [side]: open,
-        });
-    };
-
-    isAtTopOffPage = el => el.getBoundingClientRect().y === 0;
+    isAtTopOffPage = el => (
+        // make this dependent on what kind of browser the user is on.
+        // For instance, on chrome mobile there is no glitch, but on Safari
+        // there is still glitching
+        el.getBoundingClientRect().y <= 10
+    )
 
     render() {
         const { classes } = this.props;
-
-        // console.log('these are the style classes:', classes);
-        // console.log('is nav in the very top?:', this.state.isNavOnTop);
 
         const sideList = (
             <div className={classes.list}>
@@ -105,7 +112,7 @@ class TemporaryDrawer extends React.Component {
                                     spy={true}
                                     smooth={true}
                                     duration={500}
-                                    onClick={this.toggleDrawer('left', false)}
+                                    onClick={close}
                                     onSetActive={
                                         (linkName) => {
                                             // make the top navbar change color to its background
@@ -146,37 +153,22 @@ class TemporaryDrawer extends React.Component {
         );
 
         const close = () => {
-
-            console.log('stängs');
-
-            this.toggleDrawer('left', false)();
-            // window.document.body.style.overflowY = 'visible';
-
+            this.setState({left: false})
             this.setState({buttonText: 'Open Left'});
 
-
             if (this.state.isNavOnTop) {
-                document.querySelector('.navbar-container').style.zIndex = 10;
-                document.querySelector('.navbar-container').style.backgroundColor = 'rgba(255, 255, 255, 0.823)';
+                this.styleNavBarDefault();
             }
         }
 
         const open = () => {
-            document.body.style.overflow = 'hidden';
-
-            console.log('öppnas');
-
-            this.toggleDrawer('left', true)();
-            // window.document.body.style.overflowY = 'hidden';
-
+            this.setState({left: true})
             this.setState({buttonText: 'Close Left'});
 
             if (this.state.isNavOnTop) {
-                document.querySelector('.navbar-container').style.zIndex = 1400;
-                document.querySelector('.navbar-container').style.backgroundColor = 'white';
+                this.styleNavBarTop();
             } else {
-                document.querySelector('.navbar-container').style.zIndex = 10;
-                document.querySelector('.navbar-container').style.backgroundColor = 'rgba(255, 255, 255, 0.823)';
+                this.styleNavBarDefault();
             }
         }
 
@@ -187,14 +179,14 @@ class TemporaryDrawer extends React.Component {
                     // classes={{ paper: classes.drawerPaperStyles }}
                     classes={{paper: classes[this.state.isNavOnTop ? 'drawerTop' : 'drawer' ]}}
                     open={this.state.left}
-                    onClose={() => close()}
-                    onOpen={() => open()}
+                    onClose={close}
+                    onOpen={open}
                     >
                     <div
                         tabIndex={0}
                         role="button"
-                        onClick={this.toggleDrawer('left', false)}
-                        onKeyDown={this.toggleDrawer('left', false)}
+                        onClick={close}
+                        onKeyDown={close}
                     >
                         {sideList}
                     </div>
