@@ -48,13 +48,9 @@ const styles = {
 
 class TemporaryDrawer extends React.Component {
     state = {
-        top: false,
-        bottom: false,
-        right: false,
-
         left: false,
-
-        isNavOnTop: true || false
+        isNavOnTop: true || false,
+        buttonText: 'Open Left'
     };
 
     handleScroll = () => {
@@ -75,6 +71,7 @@ class TemporaryDrawer extends React.Component {
 
     componentDidMount= () => {
         window.addEventListener('scroll', this.handleScroll);
+        document.querySelector('.navbar-container').style.justifyContent = 'flex-end';
         console.log(this.isAtTopOffPage(document.querySelector('.navbar-container')));
     };
 
@@ -155,6 +152,9 @@ class TemporaryDrawer extends React.Component {
             this.toggleDrawer('left', false)();
             // window.document.body.style.overflowY = 'visible';
 
+            this.setState({buttonText: 'Open Left'});
+
+
             if (this.state.isNavOnTop) {
                 document.querySelector('.navbar-container').style.zIndex = 10;
                 document.querySelector('.navbar-container').style.backgroundColor = 'rgba(255, 255, 255, 0.823)';
@@ -162,11 +162,14 @@ class TemporaryDrawer extends React.Component {
         }
 
         const open = () => {
+            document.body.style.overflow = 'hidden';
 
             console.log('öppnas');
 
             this.toggleDrawer('left', true)();
             // window.document.body.style.overflowY = 'hidden';
+
+            this.setState({buttonText: 'Close Left'});
 
             if (this.state.isNavOnTop) {
                 document.querySelector('.navbar-container').style.zIndex = 1400;
@@ -179,7 +182,7 @@ class TemporaryDrawer extends React.Component {
 
         return (
             <div >
-                <Button onClick={open}>Open Left</Button>
+                <Button onClick={!this.state.left ? open : close}>{this.state.buttonText}</Button>
                 <Drawer
                     // classes={{ paper: classes.drawerPaperStyles }}
                     classes={{paper: classes[this.state.isNavOnTop ? 'drawerTop' : 'drawer' ]}}
