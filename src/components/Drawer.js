@@ -102,9 +102,9 @@ class TemporaryDrawer extends React.Component {
 
         const sideList = (
             <div className={classes.list}>
-                <List>
+                <List onClick={() => console.log('list was clicked')}>
                     {['Home', 'Projects', 'AboutMe'].map(linkName => (
-                        <ListItem button key={linkName}>
+                        <ListItem button key={linkName} >
                             <ListItemText >
                                 <Link
                                     activeClass="active"
@@ -114,7 +114,7 @@ class TemporaryDrawer extends React.Component {
                                     duration={500}
                                     onClick={close}
                                     onSetActive={
-                                        (linkName) => {
+                                        (linkName,gg) => {
                                             // make the top navbar change color to its background
                                             if (linkName === 'Home') {
                                                 // this.adjustShadow('0px 0px 10px 0px rgba(0,0,0,0.75)');
@@ -126,6 +126,7 @@ class TemporaryDrawer extends React.Component {
                                                 // console.log('make shadow even more visble and dark');
                                             }
                                             console.log(`link was pressed: ${linkName}`);
+                                            console.log(this.state.left);
                                         }}
                                 >
                                     {linkName.split('').map(l => /([A-Z])/.test(l) ? ' ' + l : l).join('').trim()}
@@ -153,6 +154,8 @@ class TemporaryDrawer extends React.Component {
         );
 
         const close = () => {
+            console.log('closing..');
+
             this.setState({left: false})
             this.setState({buttonText: 'Open Left'});
 
