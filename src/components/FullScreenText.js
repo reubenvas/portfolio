@@ -10,11 +10,16 @@ function scrollTo(query) {
     animateScroll.scrollTo(element, { smooth: true, duration: 3000, delay: 500 });
 }
 
+class FullScreenText extends React.Component {
 
-const FullScreenText = props => {
-    const { children, className} = props;
-    const sentences = children.split('#');
-    const lines = [];
+    componentWillMount = () => {
+        window.document.body.style.overflowY = 'hidden';
+    }
+
+    render() {
+        const { children, className} = this.props;
+        const sentences = children.split('#');
+        const lines = [];
 
     return (
         <div className={`${className} container--fullscreen`} >
@@ -41,6 +46,7 @@ const FullScreenText = props => {
             </Typist>
         </div>
     )
+            }
 }
 
 

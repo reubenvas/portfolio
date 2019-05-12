@@ -15,18 +15,18 @@ const Project = (props) => {
                 <h2>{name}</h2>
                 <p>{description}</p>
                 <div className="buttons-container">
-                    <button
+                    { siteLink && <button
                         className="project-btn"
                         onClick={() => window.location.href = siteLink}
                     >
                         View App
-                    </button>
-                    <button
+                    </button> }
+                    { codeLink && <button
                         className="project-btn"
                         onClick={() => window.location.href = codeLink}
                     >
                         View Code
-                    </button>
+                    </button> }
                 </div>
             </div>
         </div>

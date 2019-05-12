@@ -10,6 +10,7 @@ import Project from './components/Project';
 
 import preggy from './images/preggy.png';
 import park_away from './images/park_away.PNG';
+import todo from './images/todo.PNG';
 
 
 class App extends Component {
@@ -42,7 +43,6 @@ class App extends Component {
           <FullScreenText className='Intro'>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
         );
       }
-      window.document.body.style.overflowY = 'visible';
       return <div />;
     }
 
@@ -67,29 +67,25 @@ class App extends Component {
             <Project
               name="Park Away"
               picture={park_away}
-              siteLink='#'
+              siteLink='https://park-easy-app.herokuapp.com/' // since this is heroku it needs to wake up every hour
               codeLink='https://github.com/reubenvas/Parking-App'
               description="Extraordinary login- and logout app for parking."
             />
             <Project
               name="Preggy"
               picture={preggy}
-              siteLink='#'
               codeLink='https://github.com/reubenvas/Preggy'
               description="Sensational ios- and android app for following your pregnancy."
             />
             <Project
-              name="Project-Name"
-              picture='#'
-              siteLink='#'
-              codeLink='#'
-              description="Project-Description"
+              name="Todo App"
+              picture={todo}
+              siteLink=''
+              codeLink='https://github.com/reubenvas/Todo-app'
+              description="Incredible todo app with unique UI"
             />
           </div>
         </div>
-        <footer>
-          <p>this is a footer</p>
-        </footer>
       </main>
     );
   }
