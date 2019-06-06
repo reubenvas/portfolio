@@ -3,8 +3,7 @@ import './App.css';
 
 import Cookies from 'universal-cookie';
 
-import FullScreenText from './components/FullScreenText';
-import NavigationBar from './components/NavigationBar';
+import Intro from './components/Intro';
 import AboutMe from './components/AboutMe';
 import Project from './components/Project';
 
@@ -12,6 +11,8 @@ import preggy from './images/preggy.png';
 import park_away from './images/park_away.PNG';
 import todo from './images/todo.PNG';
 
+
+import Menu from './components/Menu';
 
 class App extends Component {
   state = {
@@ -35,20 +36,15 @@ class App extends Component {
     return false;
   }
 
+  isMobileView = () => window.innerWidth < 830 ? true : false;
+
   render() {
 
-    const Intro = () => {
-      if (this.isFirstTimeVisit() && this.state.intro) {
-        return (
-          <FullScreenText className='Intro'>Hi! #My name is Reuben. #I'm a Fullstack JavaScript Developer!</FullScreenText>
-        );
-      }
-      return <div />;
-    }
+
 
     return (
       <main className="App">
-        <Intro />
+        {this.isFirstTimeVisit() && this.state.intro && <Intro />}
         <div className='Home' /* set either class or name to target of link */>
           <div className='home-picture'>
             <article className='text--home'>
@@ -58,7 +54,10 @@ class App extends Component {
           </div>
         </div>
         <div className='space' />
-        <NavigationBar turnOffIntro={this.removeIntro} />
+        <Menu
+          isMobile={this.isMobileView()}
+          turnOffIntro={this.removeIntro}
+        />
         <div className='space' />
         <AboutMe />
         <div className="Projects">

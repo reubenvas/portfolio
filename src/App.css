@@ -74,6 +74,10 @@
   justify-content: space-around;
 }
 
+.menu-btn {
+  font-size: calc(30px - 2vmin)
+}
+
 .link-container {
   /* border: 1px solid; */
   font-family: 'Arima Madurai', cursive;
@@ -99,7 +103,6 @@
 .text--home {
   text-shadow: 0px 0px 15px #a79b94;
 }
-
 
 .intro {
   font-family: 'Cinzel Decorative', cursive;
